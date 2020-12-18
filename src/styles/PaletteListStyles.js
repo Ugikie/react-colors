@@ -2,6 +2,7 @@ const styles = {
 	root: {
 		backgroundColor: 'blue',
 		height: '100vh',
+		overflow: 'auto',
 		display: 'flex',
 		alignItems: 'flex-start',
 		justifyContent: 'center'
@@ -17,7 +18,12 @@ const styles = {
 		display: 'flex',
 		width: '100%',
 		justifyContent: 'space-between',
-		color: 'white'
+		color: 'white',
+		alignItems: 'center',
+		'& a': {
+			color: 'white',
+			textDecoration: 'none'
+		}
 	},
 	palettes: {
 		boxSizing: 'border-box',

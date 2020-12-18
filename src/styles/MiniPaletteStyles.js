@@ -12,7 +12,7 @@ const styles = {
 	},
 	colors: {
 		backgroundColor: '#dae1e4',
-		height: '125px',
+		height: '150px',
 		width: '100%',
 		borderRadius: '5px',
 		overflow: 'hidden'

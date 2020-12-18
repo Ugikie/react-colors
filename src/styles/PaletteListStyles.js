@@ -1,18 +1,38 @@
+import sizes from './sizes';
+import bg from './Confetti-Doodles.svg';
+
 const styles = {
+	'@global': {
+		'.fade-exit': {
+			opacity: 1
+		},
+		'.fade-exit-active': {
+			opacity: 0,
+			transition: 'opacity 500ms ease-out'
+		}
+	},
 	root: {
-		backgroundColor: 'blue',
 		height: '100vh',
 		overflow: 'auto',
 		display: 'flex',
 		alignItems: 'flex-start',
-		justifyContent: 'center'
+		justifyContent: 'center',
+		// background by SVGBackgrounds.com
+		backgroundColor: '#2C2AAD',
+		backgroundImage: `url(${bg})`
+	},
+	heading: {
+		fontSize: '2rem'
 	},
 	container: {
 		width: '50%',
 		display: 'flex',
 		alignItems: 'flex-start',
 		flexDirection: 'column',
-		flexWrap: 'wrap'
+		flexWrap: 'wrap',
+		[sizes.down('xl')]: {
+			width: '75%'
+		}
 	},
 	nav: {
 		display: 'flex',
@@ -30,7 +50,13 @@ const styles = {
 		width: '100%',
 		display: 'grid',
 		gridTemplateColumns: 'repeat(3, 30%)',
-		gridGap: '5%'
+		gridGap: '1.5rem',
+		[sizes.down('md')]: {
+			gridTemplateColumns: 'repeat(2, 50%)'
+		},
+		[sizes.down('xs')]: {
+			gridTemplateColumns: 'repeat(1, 100%)'
+		}
 	}
 };
 

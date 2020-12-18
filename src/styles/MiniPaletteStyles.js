@@ -6,8 +6,9 @@ const styles = {
 		padding: '0.5rem',
 		position: 'relative',
 		overflow: 'hidden',
-		'&:hover': {
-			cursor: 'pointer'
+		cursor: 'pointer',
+		'&:hover svg': {
+			opacity: 1
 		}
 	},
 	colors: {
@@ -21,7 +22,7 @@ const styles = {
 		display: 'flex',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		margin: '0',
+		margin: 0,
 		color: 'black',
 		paddingTop: '0.5rem',
 		fontSize: '1rem',
@@ -38,6 +39,19 @@ const styles = {
 		margin: '0 auto',
 		position: 'relative',
 		verticalAlign: 'top'
+	},
+	delete: {},
+	deleteIcon: {
+		color: 'white',
+		backgroundColor: '#eb3d30',
+		width: '20px',
+		height: '20px',
+		position: 'absolute',
+		right: 0,
+		top: 0,
+		padding: '10px',
+		zIndex: '10',
+		opacity: 0
 	}
 };
 

@@ -10,8 +10,9 @@ import { generatePalette } from './ColorHelpers';
 class App extends Component {
 	constructor(props) {
 		super(props);
+		const savedPalettes = JSON.parse(window.localStorage.getItem('RC-Palettes'));
 		this.state = {
-			palettes: seedColors
+			palettes: savedPalettes || seedColors
 		};
 		this.findPalette = this.findPalette.bind(this);
 		this.savePalette = this.savePalette.bind(this);
@@ -21,8 +22,19 @@ class App extends Component {
 			return palette.id === id;
 		});
 	}
+	deletePalette = (id) => {
+		this.setState(
+			(st) => ({
+				palettes: st.palettes.filter((palette) => palette.id !== id)
+			}),
+			this.syncLocalStorage
+		);
+	};
 	savePalette(newPalette) {
-		this.setState({ palettes: [ ...this.state.palettes, newPalette ] });
+		this.setState({ palettes: [ ...this.state.palettes, newPalette ] }, this.syncLocalStorage);
+	}
+	syncLocalStorage() {
+		window.localStorage.setItem('RC-Palettes', JSON.stringify(this.state.palettes));
 	}
 	render() {
 		return (
@@ -37,7 +49,13 @@ class App extends Component {
 				<Route
 					exact
 					path='/'
-					render={(routeProps) => <PaletteList palettes={this.state.palettes} {...routeProps} />}
+					render={(routeProps) => (
+						<PaletteList
+							deletePalette={this.deletePalette}
+							palettes={this.state.palettes}
+							{...routeProps}
+						/>
+					)}
 				/>
 				<Route
 					exact

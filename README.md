@@ -2,7 +2,7 @@
 
 Create and explore color palettes with this React based app!
 
-[Demo](http://Ugikie.github.io/react-colors)
+[Demo](http://ugikie.github.io/react-colors)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

@@ -28,13 +28,13 @@ const styles = {
 		}
 	},
 	copyText: {
-		color: (props) => (chroma(props.background).luminance() >= 0.6 ? 'rgba(0,0,0,0.5)' : 'white')
+		color: (props) => (chroma(props.background).luminance() >= 0.5 ? 'rgba(0,0,0,0.5)' : 'white')
 	},
 	colorName: {
 		color: (props) => (chroma(props.background).luminance() <= 0.2 ? 'white' : 'black')
 	},
 	seeMore: {
-		color: (props) => (chroma(props.background).luminance() >= 0.6 ? 'rgba(0,0,0,0.5)' : 'white'),
+		color: (props) => (chroma(props.background).luminance() >= 0.5 ? 'rgba(0,0,0,0.5)' : 'white'),
 		background: 'rgba(255, 255, 255, 0.3)',
 		position: 'absolute',
 		border: 'none',
@@ -47,7 +47,7 @@ const styles = {
 		textTransform: 'uppercase'
 	},
 	copyButton: {
-		color: (props) => (chroma(props.background).luminance() >= 0.6 ? 'rgba(0,0,0,0.5)' : 'white'),
+		color: (props) => (chroma(props.background).luminance() >= 0.5 ? 'rgba(0,0,0,0.5)' : 'white'),
 		width: '100px',
 		height: '30px',
 		position: 'absolute',
@@ -90,7 +90,7 @@ const styles = {
 		zIndex: '10',
 		position: 'absolute'
 	},
-	copyMsg: {
+	copyMessage: {
 		position: 'fixed',
 		left: '0',
 		right: '0',

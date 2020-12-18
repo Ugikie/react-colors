@@ -1,8 +1,8 @@
 import React from 'react';
 import { SortableContainer } from 'react-sortable-hoc';
-import DraggableColorBox from './DraggableColorBox';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { withStyles } from '@material-ui/core/styles';
+import DraggableColorBox from './DraggableColorBox';
 
 const styles = {
 	'@global': {

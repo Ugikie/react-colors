@@ -19,12 +19,8 @@ class PaletteMetaForm extends Component {
 	}
 
 	componentDidMount() {
-		// custom rule will have name 'isPasswordMatch'
-		ValidatorForm.addValidationRule('isColorNameUnique', (value) =>
-			this.props.colors.every(({ name }) => name.toLowerCase() !== value.toLowerCase())
-		);
-		ValidatorForm.addValidationRule('isColorUnique', (value) =>
-			this.props.colors.every(({ color }) => color !== this.state.currentColor)
+		ValidatorForm.addValidationRule('isPaletteNameUnique', (value) =>
+			this.props.palettes.every(({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase())
 		);
 	}
 
@@ -49,18 +45,19 @@ class PaletteMetaForm extends Component {
 	savePalette = (emoji) => {
 		const newPalette = { paletteName: this.state.newPaletteName, emoji: emoji.native };
 		this.props.handleSubmit(newPalette);
+		this.setState({ stage: '' });
 	};
 
 	render() {
-		const { newPaletteName } = this.state;
+		const { newPaletteName, stage } = this.state;
 		const { hideForm } = this.props;
 		return (
 			<div>
-				<Dialog open={this.state.stage === 'emoji'} onClose={hideForm}>
+				<Dialog open={stage === 'emoji'} onClose={hideForm}>
 					<DialogTitle id='form-dialog-title'>Choose a Palette Emoji</DialogTitle>
 					<Picker title='Pick a Palette Emoji' onSelect={this.savePalette} />
 				</Dialog>
-				<Dialog open={this.state.stage === 'form'} aria-labelledby='form-dialog-title' onClose={hideForm}>
+				<Dialog open={stage === 'form'} aria-labelledby='form-dialog-title' onClose={hideForm}>
 					<DialogTitle id='form-dialog-title'>Choose a Palette Name</DialogTitle>
 
 					<ValidatorForm onSubmit={this.showEmojiPicker}>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { withStyles } from '@material-ui/styles';
 import Slider from 'rc-slider';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -8,6 +7,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import 'rc-slider/assets/index.css';
+import { withStyles } from '@material-ui/styles';
 import styles from './styles/NavbarStyles';
 
 class Navbar extends Component {
@@ -30,7 +30,7 @@ class Navbar extends Component {
 	}
 	render() {
 		const { level, changeLevel, showingAllColors, classes } = this.props;
-		const { format } = this.state;
+		const { format, open } = this.state;
 		return (
 			<header className={classes.Navbar}>
 				<div className={classes.logo}>
@@ -56,7 +56,7 @@ class Navbar extends Component {
 					autoHideDuration={3000}
 					message={<span id='message-id'>Format Changed!</span>}
 					anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-					open={this.state.open}
+					open={open}
 					onClose={this.closeSnackbar}
 					action={[
 						<IconButton onClick={this.closeSnackbar} color='inherit' key='close' aria-label='close'>

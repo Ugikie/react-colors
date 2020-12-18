@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
-import { ChromePicker } from 'react-color';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { ChromePicker } from 'react-color';
+import { withStyles } from '@material-ui/core/styles';
 import styles from './styles/ColorPickerFormStyles';
 
 class ColorPickerForm extends Component {
@@ -12,6 +12,15 @@ class ColorPickerForm extends Component {
 			currentColor: '#6c5ce7',
 			newColorName: ''
 		};
+	}
+
+	componentDidMount() {
+		ValidatorForm.addValidationRule('isColorNameUnique', (value) =>
+			this.props.colors.every(({ name }) => name.toLowerCase() !== value.toLowerCase())
+		);
+		ValidatorForm.addValidationRule('isColorUnique', () =>
+			this.props.colors.every(({ color }) => color !== this.state.currentColor)
+		);
 	}
 
 	updateCurrentColor = (newColor) => {
@@ -34,17 +43,18 @@ class ColorPickerForm extends Component {
 
 	render() {
 		const { paletteIsFull, classes } = this.props;
+		const { currentColor, newColorName } = this.state;
 		return (
 			<div style={{ width: '100%' }}>
 				<ChromePicker
 					width='100%'
 					className={classes.picker}
-					color={this.state.currentColor}
+					color={currentColor}
 					onChangeComplete={this.updateCurrentColor}
 				/>
-				<ValidatorForm onSubmit={this.handleSubmit}>
+				<ValidatorForm onSubmit={this.handleSubmit} instantValidate={false}>
 					<TextValidator
-						value={this.state.newColorName}
+						value={newColorName}
 						name='newColorName'
 						variant='filled'
 						margin='normal'
@@ -61,7 +71,7 @@ class ColorPickerForm extends Component {
 					<Button
 						variant='contained'
 						color='primary'
-						style={{ backgroundColor: paletteIsFull ? 'grey' : this.state.currentColor }}
+						style={{ backgroundColor: paletteIsFull ? 'grey' : currentColor }}
 						type='submit'
 						className={classes.addColor}
 						disabled={paletteIsFull}

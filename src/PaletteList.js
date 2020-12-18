@@ -62,7 +62,7 @@ class PaletteList extends Component {
 					</TransitionGroup>
 				</div>
 				<Dialog open={openDeleteDialog} aria-labelledby='delete-dialog-title' onClose={this.closeDialog}>
-					<DialogTitle id='delete-dialog-title'>Dlete This Palette?</DialogTitle>
+					<DialogTitle id='delete-dialog-title'>Delete This Palette?</DialogTitle>
 					<List>
 						<ListItem button onClick={this.handleDelete}>
 							<ListItemAvatar>

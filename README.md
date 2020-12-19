@@ -20,9 +20,9 @@ You will also see any lint errors in the console.
 
 ## Todo:
 
-- Add ability to edit palettes
-- Fix some issues on mobile
-- Add dark mode option
-- Improve some styling
-- Add more transitions
-- Add randomize palette button
+- [ ] Add ability to edit palettes
+- [ ] Fix some issues on mobile
+- [ ] Add dark mode option
+- [ ] Improve some styling
+- [ ] Add more transitions
+- [ ] Add randomize palette button

@@ -18,10 +18,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-##Todo:
-[] Add ability to edit palettes
-[] Fix some issues on mobile
-[] Add dark mode option
-[] Improve some styling
-[] Add more transitions
-[] Add randomize palette button
+## Todo:
+
+[ ] Add ability to edit palettes
+[ ] Fix some issues on mobile
+[ ] Add dark mode option
+[ ] Improve some styling
+[ ] Add more transitions
+[ ] Add randomize palette button

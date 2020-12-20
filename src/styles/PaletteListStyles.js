@@ -4,12 +4,12 @@ import bg from './Confetti-Doodles.svg';
 const styles = {
   '@global': {
     '.fade-exit': {
-      opacity: 1
+      opacity: 1,
     },
     '.fade-exit-active': {
       opacity: 0,
-      transition: 'opacity 500ms ease-out'
-    }
+      transition: 'opacity 500ms ease-out',
+    },
   },
   root: {
     height: '100vh',
@@ -19,10 +19,10 @@ const styles = {
     justifyContent: 'center',
     // background by SVGBackgrounds.com
     backgroundColor: '#2C2AAD',
-    backgroundImage: `url(${bg})`
+    backgroundImage: `url(${bg})`,
   },
   heading: {
-    fontSize: '2rem'
+    fontSize: '2rem',
   },
   container: {
     width: '50%',
@@ -30,12 +30,10 @@ const styles = {
     alignItems: 'flex-start',
     flexDirection: 'column',
     flexWrap: 'wrap',
+    marginBottom: '150px',
     [sizes.down('xl')]: {
-      width: '75%'
+      width: '75%',
     },
-    [sizes.down('sm')]: {
-      marginBottom: '150px'
-    }
   },
   nav: {
     display: 'flex',
@@ -45,8 +43,8 @@ const styles = {
     alignItems: 'center',
     '& a': {
       color: 'white',
-      textDecoration: 'none'
-    }
+      textDecoration: 'none',
+    },
   },
   palettes: {
     boxSizing: 'border-box',
@@ -55,12 +53,12 @@ const styles = {
     gridTemplateColumns: 'repeat(3, 30%)',
     gridGap: '1.5rem',
     [sizes.down('md')]: {
-      gridTemplateColumns: 'repeat(2, 50%)'
+      gridTemplateColumns: 'repeat(2, 50%)',
     },
     [sizes.down('xs')]: {
-      gridTemplateColumns: 'repeat(1, 100%)'
-    }
-  }
+      gridTemplateColumns: 'repeat(1, 100%)',
+    },
+  },
 };
 
 export default styles;
